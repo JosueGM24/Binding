@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Binding.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Entry
+                Placeholder="Nombre"
+                x:Name="name"/>
+            <Entry
+                x:Name="lastname1"
+                Placeholder="Apellido paterno"/>
+            <Entry
+                x:Name="lastname2"
+                Placeholder="Apellido materno"/>
+            <CollectionView x:Name="collectionPeople" ItemsSource="{Binding People}" FlowDirection="MatchParent">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="10">
+                            <Label
+                            x:Name="txtName"
+                            Text="{Binding name}"
+                            FontAttributes="Bold"
+                            FontSize="20"/>
+                            <Label
+                            x:Name="txtLastname1"
+                            Text="{Binding lastname1}"
+                            FontAttributes="Bold"
+                            FontSize="20"/>
+                            <Label
+                            x:Name="txtLastname2"
+                            Text="{Binding lastname2}"
+                            FontAttributes="Bold"
+                            FontSize="20"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                    
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button
+                x:Name="btn_ShowData"
+                Text="Show info."
+                Clicked="btn_ShowData_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
